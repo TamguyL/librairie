@@ -18,7 +18,8 @@ public class Ecrivain {
     @JoinTable(
             name = "ecrivain_livre",
             joinColumns = { @JoinColumn(name = "id_ecrivain")},
-            inverseJoinColumns = { @JoinColumn(name = "id_livre")}
+            inverseJoinColumns = { @JoinColumn(name = "id_livre")},
+            uniqueConstraints = @UniqueConstraint(columnNames ={"id_ecrivain", "id_livre"})
     )
     private List<Livre> livres;
 
